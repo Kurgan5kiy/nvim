@@ -1,0 +1,4 @@
+require("plugins.settings.treesitter")
+require("plugins.settings.colorscheme")
+require("plugins.settings.lualine")
+require("plugins.settings.mason")
