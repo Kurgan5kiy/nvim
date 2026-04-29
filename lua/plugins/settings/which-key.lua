@@ -1,1 +1,1 @@
-require("whichkey").setup()
+require("which-key").setup()
