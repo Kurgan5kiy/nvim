@@ -6,7 +6,7 @@ vim.opt.shiftwidth = 4								-- Size of an indent
 vim.opt.smartindent = true							-- Insert indents automatically
 vim.opt.termguicolors = true						-- Enable 24-bit RGB colors
 vim.opt.clipboard = "unnamedplus"					-- Sync with system clipboard
-vim.opt.colorcolumn = "99"							-- Mark 99-symbol-length column
+-- vim.opt.colorcolumn = "99"							-- Mark 99-symbol-length column
 vim.opt.listchars = "tab:▶ ,multispace:┊ ,eol:↵"	-- Special symbols for hidden characters
 vim.opt.list = true									-- Show special symbols for hidder characters
 
