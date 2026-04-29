@@ -1,18 +1,21 @@
 require("mason-lspconfig").setup({
-    ensure_installed = { "ruff", "ty", "lua_ls" }
+    ensure_installed = { "ruff", "ty", "lua_ls", "stylua" }
 })
 
-local lspconfig = require("lspconfig")
-
--- Broadcast completion capabilities to the servers
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Setup Ruff
-lspconfig.ruff.setup({ capabilities = capabilities })
-
-lspconfig.ty.setup({ capabilities = capabilities })
-
-lspconfig.lua_ls.setup({
+vim.lsp.config("ruff", { 
+    capabilities = capabilities 
+})
+vim.lsp.enable("ruff")
+vim.lsp.config("ty", {
+    cmd = { "ty", "server" },
+    filetypes = { "python" },
+    root_markers = { "ty.toml", "pyproject.toml", "setup.py", ".git" },
+    capabilities = capabilities,
+})
+vim.lsp.enable("ty")
+vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     settings = {
         Lua = {
@@ -20,3 +23,4 @@ lspconfig.lua_ls.setup({
         }
     }
 })
+vim.lsp.enable("lua_ls")
