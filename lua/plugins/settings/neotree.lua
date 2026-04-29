@@ -3,6 +3,7 @@ require("neo-tree").setup({
     window = {
         mappings = {
             ["l"] = "open",
+			["<space>"] = "none",
         }
     },
     filesystem = {

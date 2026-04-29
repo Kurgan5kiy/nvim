@@ -8,4 +8,6 @@ vim.pack.add({
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
+	-- Which-Key
+	{ src = "https://github.com/folke/which-key.nvim"},
 })
