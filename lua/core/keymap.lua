@@ -14,3 +14,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+-- LSP & Diagnostics
+vim.keymap.set("n", "<leader>lhd", vim.lsp.buf.hover, { desc = "LSP Hover Doc (Press twice to jump inside)" })
+vim.keymap.set("n", "<leader>lhi", function() vim.diagnostic.open_float({ focus = true }) end, { desc = "LSP Hover Info (Errors)" })
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+vim.keymap.set("n", "<leader>lr", "<Cmd>LspRestart<CR>", { desc = "LSP Reload" })
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "LSP Format" })
