@@ -7,7 +7,17 @@ vim.opt.smartindent = true							-- Insert indents automatically
 vim.opt.termguicolors = true						-- Enable 24-bit RGB colors
 vim.opt.clipboard = "unnamedplus"					-- Sync with system clipboard
 -- vim.opt.colorcolumn = "99"						-- Mark 99-symbol-length column
-vim.opt.listchars = "tab:▶ ,multispace:┊"	-- Special symbols for hidden characters
+vim.opt.listchars = "tab:▶ ,multispace:┊"	        -- Special symbols for hidden characters
 vim.opt.list = true									-- Show special symbols for hidder characters
-
 vim.g.mapleader = " "								-- Set space as the leader key
+-- Auto-remove the "No Name" buffer when opening the first real file
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	callback = function()
+		for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+			-- If the buffer has no name, is not modified, and is a standard text buffer
+			if vim.api.nvim_buf_get_name(bufnr) == "" and not vim.bo[bufnr].modified and vim.bo[bufnr].buftype == "" then
+				vim.api.nvim_buf_delete(bufnr, { force = true })
+			end
+		end
+	end,
+})

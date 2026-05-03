@@ -1,6 +1,6 @@
 -- vim.keymap.set(mode, action)
 -- modes: n - normal, i - insert, v - visual, etc.
--- actions: <Cmd><command><CR> - run command
+-- actions: <Cmd><command><CR> (CR = Enter)
 
 -- Neotree toggle
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
@@ -21,3 +21,8 @@ vim.keymap.set("n", "<leader>lhi", function() vim.diagnostic.open_float({ focus 
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 vim.keymap.set("n", "<leader>lr", "<Cmd>LspRestart<CR>", { desc = "LSP Reload" })
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "LSP Format" })
+
+-- Buffers
+vim.keymap.set("n", "<S-j>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<S-k>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end, { desc = "Delete Buffer" })
