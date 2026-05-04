@@ -23,4 +23,6 @@ vim.pack.add({
 	-- Buffers & UI Additions
 	{ src = "https://github.com/akinsho/bufferline.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
+	-- Fuzzy Finder
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 })

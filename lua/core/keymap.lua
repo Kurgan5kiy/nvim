@@ -1,6 +1,10 @@
 -- vim.keymap.set(mode, action)
--- modes: n - normal, i - insert, v - visual, etc.
+-- modes: n - normal, i - insert, v - visual, t - terminal, etc.
 -- actions: <Cmd><command><CR> (CR = Enter)
+
+-- Exit insert and terminal modes quickly
+vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+vim.keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode (Enter Normal Mode)" })
 
 -- Neotree toggle
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
@@ -26,3 +30,9 @@ vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "LSP Format" })
 vim.keymap.set("n", "<S-j>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
 vim.keymap.set("n", "<S-k>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end, { desc = "Delete Buffer" })
+
+-- Fuzzy Finder (fzf-lua)
+vim.keymap.set("n", "<leader>ff", "<Cmd>FzfLua files<CR>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fw", "<Cmd>FzfLua grep_cword<CR>", { desc = "Find Word (Cursor)" })
+vim.keymap.set("n", "<leader>fW", "<Cmd>FzfLua live_grep<CR>", { desc = "Find Any Word" })
+vim.keymap.set("n", "<leader>fr", "<Cmd>FzfLua resume<CR>", { desc = "Resume Search" })
