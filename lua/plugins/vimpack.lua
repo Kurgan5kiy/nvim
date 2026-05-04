@@ -25,4 +25,6 @@ vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.nvim" },
 	-- Fuzzy Finder
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	-- Motions & Jumping
+	{ src = "https://github.com/folke/flash.nvim" },
 })
